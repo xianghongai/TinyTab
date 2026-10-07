@@ -4226,9 +4226,10 @@ void main() {
 
   void main() {
     vec3 p = position;
-    p.y = sin(p.x * 0.24 + uTime * 0.55) * 0.85
-        + cos(p.z * 0.26 + uTime * 0.38) * 0.6
-        + sin((p.x + p.z) * 0.13 + uTime * 0.27) * 0.5;
+    // Slow, low swells: the field should read as texture, not as motion that pulls the eye off the content.
+    p.y = sin(p.x * 0.24 + uTime * 0.22) * 0.6
+        + cos(p.z * 0.26 + uTime * 0.16) * 0.42
+        + sin((p.x + p.z) * 0.13 + uTime * 0.11) * 0.35;
     vec4 view = modelViewMatrix * vec4(p, 1.0);
     gl_Position = projectionMatrix * view;
     gl_PointSize = uSize * uPixelRatio * (10.0 / -view.z);
@@ -4248,8 +4249,8 @@ void main() {
     float edge = 1.0 - smoothstep(0.35, 0.5, length(gl_PointCoord - 0.5));
     if (edge <= 0.0) discard;
     float crest = clamp(vHeight * 0.4 + 0.5, 0.0, 1.0);
-    // Fade out well before the horizon, where distant points crowd into moire.
-    float fade = 1.0 - smoothstep(uFar * 0.2, uFar * 0.7, vDistance);
-    gl_FragColor = vec4(mix(uLow, uHigh, crest), edge * fade * uOpacity * (0.35 + 0.65 * crest));
+    // Fade out well before the horizon, where distant points crowd into moire, and soften the nearest, largest points.
+    float fade = (1.0 - smoothstep(uFar * 0.2, uFar * 0.7, vDistance)) * (0.4 + 0.6 * smoothstep(4.0, 14.0, vDistance));
+    gl_FragColor = vec4(mix(uLow, uHigh, crest), edge * fade * uOpacity * (0.5 + 0.5 * crest));
   }
-`,Cs={dark:{low:`#6366f1`,high:`#e0e7ff`,opacity:1,blending:2},light:{low:`#818cf8`,high:`#6d28d9`,opacity:.55,blending:1}},ws=46;function Ts(e,t){let n;try{n=new bs({canvas:e,alpha:!0,antialias:!1,powerPreference:`low-power`})}catch{return null}let r=Math.min(window.devicePixelRatio,1.5);n.setPixelRatio(r),n.setClearColor(0,0);let i=t.dense?220:110,a=t.dense?120:70,o=new Float32Array(i*a*3);for(let e=0;e<a;e++)for(let t=0;t<i;t++){let n=(e*i+t)*3;o[n]=(t/(i-1)-.5)*80,o[n+2]=-(e/(a-1))*ws+4}let s=new cn;s.setAttribute(`position`,new Kt(o,3));let c={value:0},l={value:new Z},u={value:new Z},d={value:1},f=new sr({vertexShader:xs,fragmentShader:Ss,transparent:!0,depthWrite:!1,uniforms:{uTime:c,uSize:{value:t.dense?3.4:4},uPixelRatio:{value:r},uLow:l,uHigh:u,uOpacity:d,uFar:{value:ws}}}),p=new pt;p.add(new Gn(s,f));let m=new Lr(55,1,.1,100),h={x:0,y:0},g={x:0,y:0},_=()=>{n.setSize(window.innerWidth,window.innerHeight,!1),m.aspect=window.innerWidth/window.innerHeight,m.updateProjectionMatrix()};_(),window.addEventListener(`resize`,_);let v=0,y=performance.now(),b=()=>{c.value=(performance.now()-y)/1e3,g.x+=(h.x-g.x)*.04,g.y+=(h.y-g.y)*.04,m.position.set(g.x*2,5.5+g.y*.8,9),m.lookAt(0,-1,-14),n.render(p,m)},x=()=>{b(),v=requestAnimationFrame(x)},S=()=>{cancelAnimationFrame(v),!document.hidden&&t.animate&&x()};document.addEventListener(`visibilitychange`,S);let C={setTheme(e){let n=Cs[e];l.value.set(n.low),u.value.set(n.high),d.value=n.opacity,f.blending=n.blending,f.needsUpdate=!0,t.animate||b()},setPointer(e,t){h.x=e,h.y=t},dispose(){cancelAnimationFrame(v),window.removeEventListener(`resize`,_),document.removeEventListener(`visibilitychange`,S),s.dispose(),f.dispose(),n.dispose()}};return C.setTheme(t.theme),t.animate&&x(),C}export{Ts as createWaveField};
+`,Cs={dark:{low:`#4f46e5`,high:`#a5b4fc`,opacity:.6,blending:2},light:{low:`#818cf8`,high:`#6d28d9`,opacity:.35,blending:1}},ws=46;function Ts(e,t){let n;try{n=new bs({canvas:e,alpha:!0,antialias:!1,powerPreference:`low-power`})}catch{return null}let r=Math.min(window.devicePixelRatio,1.5);n.setPixelRatio(r),n.setClearColor(0,0);let i=t.dense?220:110,a=t.dense?120:70,o=new Float32Array(i*a*3);for(let e=0;e<a;e++)for(let t=0;t<i;t++){let n=(e*i+t)*3;o[n]=(t/(i-1)-.5)*80,o[n+2]=-(e/(a-1))*ws+4}let s=new cn;s.setAttribute(`position`,new Kt(o,3));let c={value:0},l={value:new Z},u={value:new Z},d={value:1},f=new sr({vertexShader:xs,fragmentShader:Ss,transparent:!0,depthWrite:!1,uniforms:{uTime:c,uSize:{value:t.dense?2.6:3},uPixelRatio:{value:r},uLow:l,uHigh:u,uOpacity:d,uFar:{value:ws}}}),p=new pt;p.add(new Gn(s,f));let m=new Lr(55,1,.1,100),h={x:0,y:0},g={x:0,y:0},_=()=>{n.setSize(window.innerWidth,window.innerHeight,!1),m.aspect=window.innerWidth/window.innerHeight,m.updateProjectionMatrix()};_(),window.addEventListener(`resize`,_);let v=0,y=performance.now(),b=()=>{c.value=(performance.now()-y)/1e3,g.x+=(h.x-g.x)*.04,g.y+=(h.y-g.y)*.04,m.position.set(g.x*2,5.5+g.y*.8,9),m.lookAt(0,-1,-14),n.render(p,m)},x=()=>{b(),v=requestAnimationFrame(x)},S=()=>{cancelAnimationFrame(v),!document.hidden&&t.animate&&x()};document.addEventListener(`visibilitychange`,S);let C={setTheme(e){let n=Cs[e];l.value.set(n.low),u.value.set(n.high),d.value=n.opacity,f.blending=n.blending,f.needsUpdate=!0,t.animate||b()},setPointer(e,t){h.x=e,h.y=t},dispose(){cancelAnimationFrame(v),window.removeEventListener(`resize`,_),document.removeEventListener(`visibilitychange`,S),s.dispose(),f.dispose(),n.dispose()}};return C.setTheme(t.theme),t.animate&&x(),C}export{Ts as createWaveField};

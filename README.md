@@ -12,7 +12,7 @@ Website: <https://tinytab.xinlu.ink/>
 
 1. Download `TinyTab.dmg` from [Releases](https://github.com/xianghongai/TinyTab/releases/latest).
 2. Open the DMG and drag TinyTab into the Applications folder.
-3. The first time you open it, macOS says it can't verify the developer, because TinyTab isn't notarized by Apple. Go to System Settings > Privacy & Security and click Open Anyway.
+3. When you open the DMG and the first time you open TinyTab, macOS says it was “Not Opened” because Apple could not verify it is free of malware; TinyTab isn't notarized by Apple. Click Done (not Move to Trash), go to System Settings > Privacy & Security, click Open Anyway, and open it again.
 4. Grant Accessibility access when asked. TinyTab needs it to intercept `Cmd + Tab` and switch other apps' windows; it takes effect without restarting TinyTab.
 
 Requires macOS 14 or later.

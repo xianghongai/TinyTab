@@ -6,7 +6,7 @@ English · [简体中文](README.zh-CN.md)
 
 A lightweight window switcher for macOS. Press `Cmd + Tab` to switch between windows across every display, desktop, and full-screen space. Each window gets a letter: hold `Cmd` and type it to jump straight there. TinyTab never connects to the internet and collects no data.
 
-Website: <https://xianghongai.github.io/TinyTab/>
+Website: <https://tinytab.xinlu.ink/>
 
 ## Download and install
 
@@ -21,8 +21,8 @@ Requires macOS 14 or later.
 
 Every feature works before activation; after a while, TinyTab reminds you to activate it. It's a one-time purchase, yours forever:
 
-1. On the [purchase page](https://xianghongai.github.io/TinyTab/#/purchase), pay by QR code and submit your machine ID, email address, and transaction number.
-2. Once your order is approved, enter your machine ID on the [Find your license](https://xianghongai.github.io/TinyTab/#/license) page to get your license.
+1. On the [purchase page](https://tinytab.xinlu.ink/#/purchase), pay by QR code and submit your machine ID, email address, and transaction number.
+2. Once your order is approved, enter your machine ID on the [Find your license](https://tinytab.xinlu.ink/#/license) page to get your license.
 3. From the TinyTab menu bar icon, choose Activate TinyTab…, paste the license, and click Activate.
 
 ## Feedback

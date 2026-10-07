@@ -6,7 +6,7 @@
 
 轻量的 macOS 窗口切换器。用 `Cmd + Tab` 在窗口之间切换，覆盖所有屏幕、所有桌面与全屏空间；每个窗口分配一个字母，按住 `Cmd` 敲下字母即可直达。应用不联网，不收集任何数据。
 
-网站：<https://xianghongai.github.io/TinyTab/>
+网站：<https://tinytab.xinlu.ink/>
 
 ## 下载与安装
 
@@ -21,8 +21,8 @@
 
 未激活时功能完整可用，使用一段时间后会提醒激活。一次性买断，永久使用：
 
-1. 在网站的[购买页面](https://xianghongai.github.io/TinyTab/#/purchase)扫码付款，并提交机器码、邮箱与交易单号。
-2. 审核通过后，在[查询注册码](https://xianghongai.github.io/TinyTab/#/license)页面输入机器码，取回注册码。
+1. 在网站的[购买页面](https://tinytab.xinlu.ink/#/purchase)扫码付款，并提交机器码、邮箱与交易单号。
+2. 审核通过后，在[查询注册码](https://tinytab.xinlu.ink/#/license)页面输入机器码，取回注册码。
 3. 在 TinyTab 菜单栏图标中选择“激活 TinyTab…”，粘贴注册码后点“激活”。
 
 ## 问题反馈

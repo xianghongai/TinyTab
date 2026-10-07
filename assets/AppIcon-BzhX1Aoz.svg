@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>TinyTab</title>
+  <defs>
+    <linearGradient id="body-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7380FF"/><stop offset="1" stop-color="#4552E0"/></linearGradient>
+    <linearGradient id="face-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EBEDFF"/></linearGradient>
+    <filter id="body-shadow" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="12.29" stdDeviation="15.36" flood-color="#000000" flood-opacity="0.28"/></filter>
+    <filter id="skirt-shadow" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="10.24" stdDeviation="12.8" flood-color="#000000" flood-opacity="0.28"/></filter>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#body-fill)" filter="url(#body-shadow)"/>
+  <rect x="289.52" y="320.67" width="444.96" height="444.96" rx="97.89" fill="#BDC4F5" filter="url(#skirt-shadow)"/>
+  <rect x="289.52" y="289.52" width="444.96" height="444.96" rx="97.89" fill="url(#face-fill)"/>
+  <path d="M378.51 512 L570.73 512 M496.69 437.96 L570.73 512 L496.69 586.04 M645.49 627.69 L645.49 396.31" fill="none" stroke="#4552E0" stroke-width="33.37" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
